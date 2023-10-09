@@ -1,2 +1,4 @@
-# PromptAttack
-This is the source code for ICLR'24 submission "LLM can Fool Itself: A Prompt-Based Adversarial Attack".
+# PromptAttack_ICLR24
+
+This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adversarial Attack".
+
