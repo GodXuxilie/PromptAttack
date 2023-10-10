@@ -5,37 +5,6 @@ import sqlite3
 import logging
 import threading
 
-# from codernitydb3.database import Database
-# from codernitydb3.hash_index import HashIndex
-
-
-# class LLMLogCodernityDB:
-#     def __init__(self, log_file) -> None:
-#         self.log_file = log_file
-#         self.db = Database(log_file)
-#         if not self.db.exists("my_table"):
-#             self.db.create("my_table")
-#             self.db.get("my_table").add_index(HashIndex("Q"))
-
-#         self.lock = threading.Lock()
-
-#     # def get_connection(self):
-#     #     if not hasattr(threading.current_thread(), "db"):
-#     #         threading.current_thread().db = Database(self.log_file)
-#     #     return threading.current_thread().db
-
-#     def DBQuery(self, Q):
-#         db = Database(self.log_file)
-#         result = db.get("my_table", Q)
-#         if result:
-#             return result.get("V")
-#         return None
-
-#     def DBInsert(self, Q, V):
-#         # with self.lock:
-#         db = Database(self.log_file)
-#         db.get("my_table").insert({"Q": Q, "V": V})
-
 
 class LLMLogSql:
     def __init__(self, log_file) -> None:
