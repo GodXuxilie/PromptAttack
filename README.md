@@ -5,13 +5,10 @@ This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adver
 <br> [[PDF]]() [[Project Page]](https://godxuxilie.github.io/project_page/prompt_attack)
 
 <div align="center">
- <img src="pic/picture_real.pdf" />
+    <img src="pic/real.jpg" />
 </div>
 
-<center>
 **[<font color=black>PromptAttack</font>](https://chat.openai.com/share/867be44f-0935-45a2-ae0d-7a725cf47c6b)** **[<font color=green>Original sample</font>](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364)** **[<font color=red>Adversarial sample</font>](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19)**
-
-</center>
 
 ## Environment
 
@@ -22,7 +19,7 @@ pip install -r requirements.txt
 ## Let's Attack the LLM via PromptAttack
 
 <div align="center">
-    <img src="pic/intro1.pdf" />
+    <img src="pic/intro.jpg" />
 </div>
 
 Our proposed PromptAttack consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**.
