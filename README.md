@@ -16,7 +16,7 @@ This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adver
 pip install -r requirements.txt
 ~~~
 
-## Let's Attack the LLM via PromptAttack
+## Let's Attack the LLM via PromptAttack!
 
 <div align="center">
     <img src="pic/intro.jpg" />
