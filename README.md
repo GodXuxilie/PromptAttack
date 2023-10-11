@@ -1,4 +1,4 @@
-# LLM can Fool Itself: A Prompt-Based Adversarial Attack
+# An LLM can Fool Itself: A Prompt-Based Adversarial Attack
 
 This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adversarial Attack",
 <br> Xilie Xu (NUS), Keyi Kong (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (Corresponding author, University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
