@@ -24,6 +24,10 @@ pip install -r requirements.txt
 
 Our proposed PromptAttack consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**. As shown in the figure, we can join together the OI, AO, and AG parts and feed them to the LLMs. The LLMs will then give us adversarial samples.
 
+We let $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^N$ be the original test dataset consisting of $N \in \mathbb{N}$ data points.
+
+For each data point $(x,y)\in \mathcal{D}$, $x = \{ t^i, c^i\}_{i=1}^n$ is the original sample where $n \in \mathbb{N}$ is the number of sentences, $t^i$ refers to the type of $i$-th sentence, and $c^i$ refers to the content of $i$-th sentence. For example, the original input in QQP and MNLI can have two types of sentences (i.e., $n=2$). We follow the types defined in their datasets, e.g., $t^1$ being ``question1`` and $t^2$ being ``question2`` for QQP, $t^1$ being ``premise`` and $t^2$ being ``hypothesis`` for MNLI.
+
 ### Original input (OI)
 
 The OI converts a data point composed of the original sample and ground-truth label sampled from a dataset into a sentence of an attack prompt. Given a data point $(x,y) \in \mathcal{D}$, we can formulate the OI as follows:
