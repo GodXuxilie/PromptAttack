@@ -73,7 +73,7 @@ python robustness_eval.py \
 
 #### Llama2 or other model
 
-You can deploy your api service following the github repo [API for Open LLMs](api-for-open-llm).
+You can deploy your api service following the github repo [API for Open LLMs](<https://github.com/xusenlinzy/api-for-open-llm>).
 
 ~~~bash
 python robustness_eval.py \
