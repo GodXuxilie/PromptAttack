@@ -18,61 +18,9 @@ pip install -r requirements.txt
 
 ## Let's Attack the LLM via PromptAttack
 
-<head>  
- <style>
-    .circle {
-      width: 30px;
-      height: 30px;
-      font-size: 15px;
-      font-weight: bold;
-      border: 3px solid #afabab;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      vertical-align: middle;
-    }
-  </style>
-</head>  
-<section class="section" id="name">
-    <div class="container is-max-desktop content">
-      <div class="container" style="display: flex;">
-        <div class="left-column" style="width: 40%; align-items: center;">
-          <div>
-            <div class="circle">1</div> <span>Generating <a href="#original-input-oi">original input</a></span>
-          </div>
-          <br>
-          <div>
-            <div class="circle">2</div> <span>Generating <a href="#attack-objective-ao">attack objective</a></span>
-          </div>
-          <br>
-          <div>
-            <div class="circle">3</div> <span>Choosing <a href="#attack-guidance-ag">attack guidance</a></span>
-          </div>
-          <br>
-          <div>
-            <div class="circle">4</div> <span>Feeding them to Attack LLMs</span>
-          </div>
-          <br>
-          <div>
-            <div class="circle">5</div> <span>Getting filtered Adversarival sample</span>
-          </div>
-          <br>
-          <div>
-            <div class="circle">6</div> <span>Putting together samples and task description</span>
-          </div>
-          <br>
-          <div>
-            <div class="circle">7</div> <span>Feeding them to Check LLMs and getting predicted labels</span>
-          </div>
-        </div>
-        <div class="right-column" style="width: 60%;">
-          <img src="pic/PromptAttack.gif" alt="MY ALT TEXT" />
-        </div>
-      </div>
-    </div>
-  </section>
+<div align="center">
+    <img src="pic/intro.jpg" />
+</div>
 
 Our proposed PromptAttack consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**. As shown in the figure, we can join together the OI, AO, and AG parts and feed them to the LLMs. The LLMs will then give us adversarial samples.
 
@@ -84,7 +32,7 @@ For each data point $(x,y)\in \mathcal{D}$, $x = \{ t^i, c^i\}_{i=1}^n$ is the o
 
 The OI converts a data point composed of the original sample and ground-truth label sampled from a dataset into a sentence of an attack prompt. Given a data point $(x,y) \in \mathcal{D}$, we can formulate the OI as follows:
 
-**The  original  $t^1c^1$ and $t^2c^2$ and $\dots$ and $t^nc^n$ is classified as $y^k$.**
+**The **original** $t^1c^1$ and $t^2c^2$ and $\dots$ and $t^nc^n$ is classified as $y^k$.**
 
 ### Attack objective (AO)
 
@@ -125,7 +73,7 @@ python robustness_eval.py \
 
 #### Llama2 or other model
 
-You can deploy your api service following the github repo [API for Open LLMs](api-for-open-llm).
+You can deploy your api service following the github repo [API for Open LLMs](<https://github.com/xusenlinzy/api-for-open-llm>).
 
 ~~~bash
 python robustness_eval.py \
