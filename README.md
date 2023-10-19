@@ -22,6 +22,42 @@ pip install -r requirements.txt
     <img src="pic/intro.jpg" />
 </div>
 
+### Script
+
+#### ChatGPT
+
+~~~bash
+python robustness_eval.py \
+    --dataset SST-2\
+    --API_key YOUR_OPENAI_API_KEY\
+    --batch_size 32\
+    --few_shot\
+    --ensemble
+~~~
+
+#### Llama2 or other model
+
+You can deploy your api service following the github repo [API for Open LLMs](<https://github.com/xusenlinzy/api-for-open-llm>).
+
+~~~bash
+python robustness_eval.py \
+    --dataset SST-2\
+    --API_base YOUR_LLM_SERVICE\
+    --API_key YOUR_OPENAI_API_KEY\
+    --batch_size 32\
+    --few_shot\
+    --ensemble
+~~~
+
+
+### PromptAttack-generated Adversarial GLUE Dataset
+
+You can access the **PromptAttack-generated Adversarial GLUE Dataset** stored in the `data` folder.
+
+Within the `data` folder, you'll find six JSON files, each corresponding to one of the six datasets. Within each JSON file, you will discover nine primary keys labeled as `C1-S3`, representing our nine **#perturbation_instructions**. Additionally, under each of these keys, you will find two sub-keys: `zero-shot` and `few-shot`. Below these sub-keys, lists containing all the data points can be found.
+
+### Methodology of PromptAttack
+
 Our proposed PromptAttack consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**. As shown in the figure, we can join together the OI, AO, and AG parts and feed them to the LLMs. The LLMs will then give us adversarial samples.
 
 We let $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^N$ be the original test dataset consisting of $N \in \mathbb{N}$ data points.
@@ -58,32 +94,7 @@ AG contains the perturbation instruction to guide the LLM on how to perturb the 
 |Sentence|S2|Paraphrase the sentence.|
 |Sentence|S3|Change the syntactic structure of the sentence.|
 
-### Script
 
-#### ChatGPT
-
-~~~bash
-python robustness_eval.py \
-    --dataset SST-2\
-    --API_key YOUR_OPENAI_API_KEY\
-    --batch_size 32\
-    --few_shot\
-    --ensemble
-~~~
-
-#### Llama2 or other model
-
-You can deploy your api service following the github repo [API for Open LLMs](<https://github.com/xusenlinzy/api-for-open-llm>).
-
-~~~bash
-python robustness_eval.py \
-    --dataset SST-2\
-    --API_base YOUR_LLM_SERVICE\
-    --API_key YOUR_OPENAI_API_KEY\
-    --batch_size 32\
-    --few_shot\
-    --ensemble
-~~~
 
 ## Adversarial Examples
 
@@ -98,12 +109,6 @@ python robustness_eval.py \
 |Sentence(S1)|Original:corny, schmaltzy and predictable, but still manages to be kind of heartwarming, nonetheless.<br />Adversarial:corny, schmaltzy and predictable, but still manages to be kind of heartwarming, nonetheless. @kjdjq2.|positive->negative|
 |Sentence(S2)|Original:green might want to hang onto that ski mask, as robbery may be the only way to pay for his next project.<br />Adversarial:green should consider keeping that ski mask, as it may provide the necessary means to finance his next project.|negative->positive|
 |Sentence(S3)|Original:with virtually no interesting elements for an audience to focus on, chelsea walls is a triple-espresso endurance challenge.<br />Adversarial:despite lacking any interesting elements for an audience to focus on, chelsea walls presents an exhilarating triple-espresso endurance challenge.|negative->positive|
-
-## PromptAttack-generated Adversarial GLUE Dataset
-
-You can access the **PromptAttack-generated Adversarial GLUE Dataset** stored in the `data` folder.
-
-Within the `data` folder, you'll find six JSON files, each corresponding to one of the six datasets. Within each JSON file, you will discover nine primary keys labeled as `C1-S3`, representing our nine **#perturbation_instructions**. Additionally, under each of these keys, you will find two sub-keys: `zero-shot` and `few-shot`. Below these sub-keys, lists containing all the data points can be found.
 
 ## BibTeX
 
