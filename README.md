@@ -113,4 +113,4 @@ Within the `data` folder, you'll find six JSON files, each corresponding to one 
 
 ## Contact
 
-Please drop an e-mail to <xuxilie@comp.nus.edu.sg> or <luxinyayaya@mail.sdu.edu.cn> if you have any enquiry.
+Please drop an e-mail to <xuxilie@comp.nus.edu.sg> and <luxinyayaya@mail.sdu.edu.cn> if you have any enquiry.
