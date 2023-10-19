@@ -23,8 +23,9 @@ pip install -r requirements.txt
 </div>
 
 We generate adversarial samples by querying the LLM via an attack prompt. The attack prompt consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**.
+We let $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^N$ be the original test dataset consisting of $N \in \mathbb{N}$ data points. 
 
-We let $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^N$ be the original test dataset consisting of $N \in \mathbb{N}$ data points. For each data point $(x,y)\in \mathcal{D}$, $x = \{ t^i, c^i\}_{i=1}^n$ is the original sample where $n \in \mathbb{N}$ is the number of sentences, $t^i$ refers to the type of $i$-th sentence, and $c^i$ refers to the content of $i$-th sentence. For example, the original input in QQP and MNLI can have two types of sentences (i.e., $n=2$). We follow the types defined in their datasets, e.g., $t^1$ being ``question1`` and $t^2$ being ``question2`` for QQP, $t^1$ being ``premise`` and $t^2$ being ``hypothesis`` for MNLI.
+For each data point $(x,y)\in \mathcal{D}$, $x = \{ t^i, c^i\}_{i=1}^n$ is the original sample where $n \in \mathbb{N}$ is the number of sentences, $t^i$ refers to the type of $i$-th sentence, and $c^i$ refers to the content of $i$-th sentence. For example, the original input in QQP and MNLI can have two types of sentences (i.e., $n=2$). We follow the types defined in their datasets, e.g., $t^1$ being ``question1`` and $t^2$ being ``question2`` for QQP, $t^1$ being ``premise`` and $t^2$ being ``hypothesis`` for MNLI.
 
 ### Original input (OI)
 
