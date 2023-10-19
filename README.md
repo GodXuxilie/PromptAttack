@@ -16,12 +16,6 @@ This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adver
 pip install -r requirements.txt
 ~~~
 
-## Let's Attack the LLM via PromptAttack
-
-<div align="center">
-    <img src="pic/intro.jpg" />
-</div>
-
 ### Script
 
 #### ChatGPT
@@ -50,11 +44,12 @@ python robustness_eval.py \
 ~~~
 
 
-### PromptAttack-generated Adversarial GLUE Dataset
+## Let's Attack the LLM via PromptAttack
 
-You can access the **PromptAttack-generated Adversarial GLUE Dataset** stored in the `data` folder.
+<div align="center">
+    <img src="pic/intro.jpg" />
+</div>
 
-Within the `data` folder, you'll find six JSON files, each corresponding to one of the six datasets. Within each JSON file, you will discover nine primary keys labeled as `C1-S3`, representing our nine **#perturbation_instructions**. Additionally, under each of these keys, you will find two sub-keys: `zero-shot` and `few-shot`. Below these sub-keys, lists containing all the data points can be found.
 
 ### Methodology of PromptAttack
 
@@ -94,6 +89,12 @@ AG contains the perturbation instruction to guide the LLM on how to perturb the 
 |Sentence|S2|Paraphrase the sentence.|
 |Sentence|S3|Change the syntactic structure of the sentence.|
 
+
+### PromptAttack-generated Adversarial GLUE Dataset
+
+You can access the **PromptAttack-generated Adversarial GLUE Dataset** stored in the `data` folder.
+
+Within the `data` folder, you'll find six JSON files, each corresponding to one of the six datasets. Within each JSON file, you will discover nine primary keys labeled as `C1-S3`, representing our nine **#perturbation_instructions**. Additionally, under each of these keys, you will find two sub-keys: `zero-shot` and `few-shot`. Below these sub-keys, lists containing all the data points can be found.
 
 
 ## Adversarial Examples
