@@ -16,48 +16,15 @@ This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adver
 pip install -r requirements.txt
 ~~~
 
-### Script
-
-#### ChatGPT
-
-~~~bash
-python robustness_eval.py \
-    --dataset SST-2\
-    --API_key YOUR_OPENAI_API_KEY\
-    --batch_size 32\
-    --few_shot\
-    --ensemble
-~~~
-
-#### Llama2 or other model
-
-You can deploy your api service following the github repo [API for Open LLMs](<https://github.com/xusenlinzy/api-for-open-llm>).
-
-~~~bash
-python robustness_eval.py \
-    --dataset SST-2\
-    --API_base YOUR_LLM_SERVICE\
-    --API_key YOUR_OPENAI_API_KEY\
-    --batch_size 32\
-    --few_shot\
-    --ensemble
-~~~
-
-
 ## Let's Attack the LLM via PromptAttack
 
 <div align="center">
     <img src="pic/intro.jpg" />
 </div>
 
+We generate adversarial samples by querying the LLM via an attack prompt. The attack prompt consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**.
 
-### Methodology of PromptAttack
-
-Our proposed PromptAttack consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**. As shown in the figure, we can join together the OI, AO, and AG parts and feed them to the LLMs. The LLMs will then give us adversarial samples.
-
-We let $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^N$ be the original test dataset consisting of $N \in \mathbb{N}$ data points.
-
-For each data point $(x,y)\in \mathcal{D}$, $x = \{ t^i, c^i\}_{i=1}^n$ is the original sample where $n \in \mathbb{N}$ is the number of sentences, $t^i$ refers to the type of $i$-th sentence, and $c^i$ refers to the content of $i$-th sentence. For example, the original input in QQP and MNLI can have two types of sentences (i.e., $n=2$). We follow the types defined in their datasets, e.g., $t^1$ being ``question1`` and $t^2$ being ``question2`` for QQP, $t^1$ being ``premise`` and $t^2$ being ``hypothesis`` for MNLI.
+We let $\mathcal{D}=\{(x_i,y_i)\}_{i=1}^N$ be the original test dataset consisting of $N \in \mathbb{N}$ data points. For each data point $(x,y)\in \mathcal{D}$, $x = \{ t^i, c^i\}_{i=1}^n$ is the original sample where $n \in \mathbb{N}$ is the number of sentences, $t^i$ refers to the type of $i$-th sentence, and $c^i$ refers to the content of $i$-th sentence. For example, the original input in QQP and MNLI can have two types of sentences (i.e., $n=2$). We follow the types defined in their datasets, e.g., $t^1$ being ``question1`` and $t^2$ being ``question2`` for QQP, $t^1$ being ``premise`` and $t^2$ being ``hypothesis`` for MNLI.
 
 ### Original input (OI)
 
@@ -89,12 +56,38 @@ AG contains the perturbation instruction to guide the LLM on how to perturb the 
 |Sentence|S2|Paraphrase the sentence.|
 |Sentence|S3|Change the syntactic structure of the sentence.|
 
+### Script
+
+#### ChatGPT
+
+~~~bash
+python robustness_eval.py \
+    --dataset SST-2\
+    --API_key YOUR_OPENAI_API_KEY\
+    --batch_size 32\
+    --few_shot\
+    --ensemble
+~~~
+
+#### Llama2 or other model
+
+You can deploy your api service following the github repo [API for Open LLMs](<https://github.com/xusenlinzy/api-for-open-llm>).
+
+~~~bash
+python robustness_eval.py \
+    --dataset SST-2\
+    --API_base YOUR_LLM_SERVICE\
+    --API_key YOUR_OPENAI_API_KEY\
+    --batch_size 32\
+    --few_shot\
+    --ensemble
+~~~
 
 ### PromptAttack-generated Adversarial GLUE Dataset
 
-You can access the **PromptAttack-generated Adversarial GLUE Dataset** stored in the `data` folder.
+**PromptAttack-generated Adversarial GLUE Dataset** is provided in the `data` folder. Please feel free to download and check it!
 
-Within the `data` folder, you'll find six JSON files, each corresponding to one of the six datasets. Within each JSON file, you will discover nine primary keys labeled as `C1-S3`, representing our nine **#perturbation_instructions**. Additionally, under each of these keys, you will find two sub-keys: `zero-shot` and `few-shot`. Below these sub-keys, lists containing all the data points can be found.
+*Description*. We provide adversarial data  In the `data` folder, you'll find six JSON files, each corresponding to one of the six datasets. Within each JSON file, you will discover nine primary keys labeled as `C1-S3`, representing our nine **#perturbation_instructions**. Additionally, under each of these keys, you will find two sub-keys: `zero-shot` and `few-shot`. Below these sub-keys, lists containing all the data points can be found.
 
 
 ## Adversarial Examples
