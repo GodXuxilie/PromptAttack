@@ -5,7 +5,7 @@ This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adver
 <br> [[PDF]]() [[Project Page]](https://godxuxilie.github.io/project_page/prompt_attack)
 
 <div align="center">
-    <img src="pic/real.png" />
+    <img src="pic/real.jpg" />
 </div>
 
 **[<font color=black>PromptAttack</font>](https://chat.openai.com/share/867be44f-0935-45a2-ae0d-7a725cf47c6b)** **[<font color=green>Original sample</font>](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364)** **[<font color=red>Adversarial sample</font>](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19)**
@@ -32,7 +32,7 @@ For each data point $(x,y)\in \mathcal{D}$, $x = \{ t^i, c^i\}_{i=1}^n$ is the o
 
 The OI converts a data point composed of the original sample and ground-truth label sampled from a dataset into a sentence of an attack prompt. Given a data point $(x,y) \in \mathcal{D}$, we can formulate the OI as follows:
 
-**The **original** $t^1c^1$ and $t^2c^2$ and $\dots$ and $t^nc^n$ is classified as $y^k$.**
+**The original $t^1c^1$ and $t^2c^2$ and $\dots$ and $t^nc^n$ is classified as $y^k$.**
 
 ### Attack objective (AO)
 
@@ -98,6 +98,12 @@ python robustness_eval.py \
 |Sentence(S1)|Original:corny, schmaltzy and predictable, but still manages to be kind of heartwarming, nonetheless.<br />Adversarial:corny, schmaltzy and predictable, but still manages to be kind of heartwarming, nonetheless. @kjdjq2.|positive->negative|
 |Sentence(S2)|Original:green might want to hang onto that ski mask, as robbery may be the only way to pay for his next project.<br />Adversarial:green should consider keeping that ski mask, as it may provide the necessary means to finance his next project.|negative->positive|
 |Sentence(S3)|Original:with virtually no interesting elements for an audience to focus on, chelsea walls is a triple-espresso endurance challenge.<br />Adversarial:despite lacking any interesting elements for an audience to focus on, chelsea walls presents an exhilarating triple-espresso endurance challenge.|negative->positive|
+
+## PromptAttack-generated Adversarial GLUE Dataset
+
+You can access the **PromptAttack-generated Adversarial GLUE Dataset** stored in the `data` folder.
+
+Within the `data` folder, you'll find six JSON files, each corresponding to one of the six datasets. Within each JSON file, you will discover nine primary keys labeled as `C1-S3`, representing our nine **#perturbation_instructions**. Additionally, under each of these keys, you will find two sub-keys: `zero-shot` and `few-shot`. Below these sub-keys, lists containing all the data points can be found.
 
 ## BibTeX
 
