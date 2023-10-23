@@ -115,7 +115,14 @@ with open('./data/Task.json', 'r') as f:
 ## BibTeX
 
 ```
-
+@misc{xu2023PromptAttack,
+      title={An LLM can Fool Itself: A Prompt-Based Adversarial Attack}, 
+      author={Xilie Xu and Keyi Kong and Ning Liu and Lizhen Cui and Di Wang and Jingfeng Zhang and Mohan Kankanhalli},
+      year={2023},
+      eprint={2310.13345},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR}
+}
 ```
 
 ## Contact
