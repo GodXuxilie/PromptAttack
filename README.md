@@ -8,7 +8,10 @@ This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adver
     <img src="pic/real.jpg" />
 </div>
 
-Logs of querying GPT-3.5: [PromptAttack against GPT-3.5 (left panel)](https://chat.openai.com/share/867be44f-0935-45a2-ae0d-7a725cf47c6b), [GPT3.5's prediction of original sample (right upper panel)](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364), [GPT3.5's prediction of adversarial sample (right lower panel)](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19).
+Logs of querying GPT-3.5: 
+- [PromptAttack against GPT-3.5 (left panel)](https://chat.openai.com/share/867be44f-0935-45a2-ae0d-7a725cf47c6b);
+- [GPT3.5's prediction of the original sample (right upper panel)](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364);
+- [GPT3.5's prediction of the adversarial sample (right lower panel)](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19).
 
 ## Environment
 
