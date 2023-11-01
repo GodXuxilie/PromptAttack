@@ -281,7 +281,7 @@ class PromptAttack(LLMCall):
                             batch_x,
                             batch_y,
                             [t_a] * len(batch_x),
-                            [perturbation_instruction_index] * len(batch_x),
+                            [i] * len(batch_x),
                             [few_shot_example] * len(batch_x),
                         )
                     )
@@ -290,7 +290,7 @@ class PromptAttack(LLMCall):
                 if self.dataset == "sst2":
                     adv_samples = [adv_sample.lower() for adv_sample in adv_samples]
                 # constrain the word modification ratio of character-level and word-level perturbation <= 0.15
-                tau_1 = 1.0 if perturbation_instruction_index >= 7 else 0.15
+                tau_1 = 1.0 if i >= 7 else 0.15
                 # adv_sample, _, tmp_bertscore = self.fidelity_filter(
                 #     x[t_a][1], adv_sample, tau_1, tau_2
                 # )
