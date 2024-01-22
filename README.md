@@ -1,7 +1,7 @@
 # An LLM can Fool Itself: A Prompt-Based Adversarial Attack
 
-This is the source code for the paper "LLM can Fool Itself: A Prompt-Based Adversarial Attack",
-<br> Xilie Xu (NUS), Keyi Kong (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (Corresponding author, University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
+This is the source code for the ICLR 2024 paper "LLM can Fool Itself: A Prompt-Based Adversarial Attack",
+<br> Xilie Xu* (NUS), Keyi Kong* (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (Corresponding author, University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
 <br> [[PDF]](https://arxiv.org/abs/2310.13345) [[Project Page]](https://godxuxilie.github.io/project_page/prompt_attack)
 
 <div align="center">
