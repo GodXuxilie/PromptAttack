@@ -4,6 +4,9 @@ This is the source code for the ICLR 2024 paper "LLM can Fool Itself: A Prompt-B
 <br> Xilie Xu* (NUS), Keyi Kong* (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (Corresponding author, University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
 <br> [[PDF]](https://arxiv.org/abs/2310.13345) [[Project Page]](https://godxuxilie.github.io/project_page/prompt_attack) 
 
+We provide a [**Colab Tutorial**](https://colab.research.google.com/drive/19CeMMgMjTvbNj8GYv6uOYI-hgXopP0U6?usp=sharing) to help you quickly start to use our proposed PromptAttack!
+
+
 <div align="center">
     <img src="pic/real.jpg" />
 </div>
@@ -12,9 +15,6 @@ Logs of querying GPT-3.5:
 - [PromptAttack against GPT-3.5 (left panel)](https://chat.openai.com/share/867be44f-0935-45a2-ae0d-7a725cf47c6b);
 - [GPT3.5's prediction of the original sample (right upper panel)](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364);
 - [GPT3.5's prediction of the adversarial sample (right lower panel)](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19).
-
-
-We provide a [**Colab Tutorial**](https://colab.research.google.com/drive/19CeMMgMjTvbNj8GYv6uOYI-hgXopP0U6?usp=sharing) to help you quickly start to use our proposed PromptAttack!
 
 ## Environment
 
