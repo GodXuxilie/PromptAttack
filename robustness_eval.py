@@ -55,13 +55,13 @@ parser.add_argument(
     "--attack_log_file",
     type=str,
     default="attack.db",
-    help="file to save LLM check result",
+    help="file to save LLM attack result",
 )
 parser.add_argument(
     "--check_log_file",
     type=str,
     default="check.db",
-    help="file to save LLM attack result",
+    help="file to save LLM check result",
 )
 
 args = parser.parse_args()
@@ -138,6 +138,7 @@ adv_generator = PromptAttack(
     dataset=args.dataset,
     label_list=label_list,
     predictor=predictor,
+    version=GPTversion
 )
 
 

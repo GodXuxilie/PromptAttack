@@ -70,8 +70,7 @@ class LLMCall(LLMLogSql):
         return response["choices"][0]["message"]["content"]
 
     def query(self, prompt):
-        save_response = self.DBQuery(prompt)
-        if save_response:
+        if save_response := self.DBQuery(prompt):
             self.log_count = self.log_count + 1
             return save_response
         response = self.call(prompt)
