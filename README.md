@@ -121,11 +121,13 @@ with open('./data/Task.json', 'r') as f:
 ## BibTeX
 
 ```
-@article{xu2023promptattack,
-  title={An LLM can Fool Itself: A Prompt-Based Adversarial Attack},
-  author={Xilie Xu and Keyi Kong and Ning Liu and Lizhen Cui and Di Wang and Jingfeng Zhang and Mohan Kankanhalli},
-  journal={arXiv preprint arXiv:2310.13345},
-  year={2023}
+@inproceedings{
+xu2024an,
+title={An {LLM} can Fool Itself: A Prompt-Based Adversarial Attack},
+author={Xilie Xu and Keyi Kong and Ning Liu and Lizhen Cui and Di Wang and Jingfeng Zhang and Mohan Kankanhalli},
+booktitle={The Twelfth International Conference on Learning Representations},
+year={2024},
+url={https://openreview.net/forum?id=VVgGbB9TNV}
 }
 ```
 
