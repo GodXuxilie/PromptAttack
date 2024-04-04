@@ -16,7 +16,7 @@ Logs of querying *ChatGPT*:
 - [GPT3.5&#39;s prediction of the original sample (right upper panel)](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364);
 - [GPT3.5&#39;s prediction of the adversarial sample (right lower panel)](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19).
 
-[Logs of querying *Gemini*](#gemini) (Credit to [Yash](https://github.com/sinhayash)).
+<a href="#gemini">Logs of querying *Gemini*</a> (Credit to [Yash](https://github.com/sinhayash)).
 
 ## Environment
 
@@ -120,9 +120,11 @@ with open('./data/Task.json', 'r') as f:
 | Sentence(S2)       | Original:green might want to hang onto that ski mask, as robbery may be the only way to pay for his next project.<br />Adversarial:green should consider keeping that ski mask, as it may provide the necessary means to finance his next project.                                                      | negative->positive |
 | Sentence(S3)       | Original:with virtually no interesting elements for an audience to focus on, chelsea walls is a triple-espresso endurance challenge.<br />Adversarial:despite lacking any interesting elements for an audience to focus on, chelsea walls presents an exhilarating triple-espresso endurance challenge. | negative->positive |
 
-<div id='gemini'></div>
+
 
 ## Attack [Gemini]((https://ai.google.dev/)
+
+<a id='genimi'></a>
 
 ### PromptAttack (Gemini logs are provided by [Yash](https://github.com/sinhayash).)
 
