@@ -16,7 +16,7 @@ Logs of querying *ChatGPT*:
 - [GPT3.5&#39;s prediction of the original sample (right upper panel)](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364);
 - [GPT3.5&#39;s prediction of the adversarial sample (right lower panel)](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19).
 
-<a href="#gemini">Logs of querying *Gemini*</a> (Credit to [Yash](https://github.com/sinhayash)).
+<a href="#attack-geminihttpsaigoogledev">Logs of querying *Gemini*</a> (Credit to [Yash](https://github.com/sinhayash)).
 
 ## Environment
 
@@ -122,7 +122,7 @@ with open('./data/Task.json', 'r') as f:
 
 
 
-## Attack [Gemini]((https://ai.google.dev/)
+## Attack [Gemini](https://ai.google.dev/)
 
 <a id='genimi'></a>
 
