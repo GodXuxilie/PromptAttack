@@ -1,8 +1,8 @@
 # An LLM can Fool Itself: A Prompt-Based Adversarial Attack
 
-This is the source code for the ICLR 2024 paper "LLM can Fool Itself: A Prompt-Based Adversarial Attack",
-`<br>` Xilie Xu* (NUS), Keyi Kong* (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (Corresponding author, University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
-`<br>` [[PDF]](https://arxiv.org/abs/2310.13345) [[Project Page]](https://godxuxilie.github.io/project_page/prompt_attack)
+This is the source code for the ICLR 2024 paper "An LLM can Fool Itself: A Prompt-Based Adversarial Attack",
+Xilie Xu* (NUS), Keyi Kong* (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (Corresponding author, University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
+<br> [[PDF]](https://arxiv.org/abs/2310.13345) [[Project Page]](https://godxuxilie.github.io/project_page/prompt_attack)
 
 We provide a [**Colab Tutorial**](https://colab.research.google.com/drive/19CeMMgMjTvbNj8GYv6uOYI-hgXopP0U6?usp=sharing) to help you quickly start to use our proposed PromptAttack!
 
@@ -10,11 +10,13 @@ We provide a [**Colab Tutorial**](https://colab.research.google.com/drive/19CeMM
     <img src="pic/real.jpg" />
 </div>
 
-Logs of querying GPT-3.5:
+Logs of querying *ChatGPT*:
 
 - [PromptAttack against GPT-3.5 (left panel)](https://chat.openai.com/share/867be44f-0935-45a2-ae0d-7a725cf47c6b);
 - [GPT3.5&#39;s prediction of the original sample (right upper panel)](https://chat.openai.com/share/dcd812ac-b686-4ab7-b93a-de26e62cb364);
 - [GPT3.5&#39;s prediction of the adversarial sample (right lower panel)](https://chat.openai.com/share/93cbb22f-d9de-43c6-aa35-ecb3c722db19).
+
+[Logs of querying *Gemini*](#gemini) (Credit to [Yash](https://github.com/sinhayash)).
 
 ## Environment
 
@@ -118,9 +120,11 @@ with open('./data/Task.json', 'r') as f:
 | Sentence(S2)       | Original:green might want to hang onto that ski mask, as robbery may be the only way to pay for his next project.<br />Adversarial:green should consider keeping that ski mask, as it may provide the necessary means to finance his next project.                                                      | negative->positive |
 | Sentence(S3)       | Original:with virtually no interesting elements for an audience to focus on, chelsea walls is a triple-espresso endurance challenge.<br />Adversarial:despite lacking any interesting elements for an audience to focus on, chelsea walls presents an exhilarating triple-espresso endurance challenge. | negative->positive |
 
-## Another Example
+<div id='gemini'></div>
 
-### PromptAttack (https://ai.google.dev/)
+## Attack [Gemini]((https://ai.google.dev/)
+
+### PromptAttack (Gemini logs are provided by [Yash](https://github.com/sinhayash).)
 
 <div align="center">
     <img src="pic/example_promptattack.jpg" />
