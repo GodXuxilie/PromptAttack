@@ -1,7 +1,7 @@
 # An LLM can Fool Itself: A Prompt-Based Adversarial Attack
 
-This is the source code for the ICLR 2024 paper "An LLM can Fool Itself: A Prompt-Based Adversarial Attack",
-Xilie Xu* (NUS), Keyi Kong* (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (Corresponding author, University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
+This is the source code for the ICLR 2024 paper "An LLM can Fool Itself: A Prompt-Based Adversarial Attack", <br>
+Xilie Xu* (NUS), Keyi Kong* (SDU), Ning Liu (SDU), Lizhen Cui (SDU), Di Wang (KAUST), Jingfeng Zhang (University of Auckland/RIKEN-AIP), Mohan Kankanhalli (NUS).
 <br> [[PDF]](https://arxiv.org/abs/2310.13345) [[Project Page]](https://godxuxilie.github.io/project_page/prompt_attack)
 
 We provide a [**Colab Tutorial**](https://colab.research.google.com/drive/19CeMMgMjTvbNj8GYv6uOYI-hgXopP0U6?usp=sharing) to help you quickly start to use our proposed PromptAttack!
