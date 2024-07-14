@@ -8,7 +8,6 @@ from Predict import Predict
 from datasets import load_dataset
 from PromptAttack import PromptAttack
 
-
 parser = argparse.ArgumentParser(description="Prompt-Based Adversarial Attack")
 parser.add_argument("--API_key", type=str, default="", help="OpenAI key")
 parser.add_argument(
@@ -82,17 +81,16 @@ def get_dataset(dataset):
         dataset_ = load_dataset("glue", dataset, split="validation")
 
     test_loader = [
-        (
+        [
             [
                 [key, value]
                 for (key, value) in dataset_[i].items()
                 if key != "label" and key != "idx"
             ],
             dataset_[i]["label"],
-        )
+        ]
         for i in range(dataset_.num_rows)
     ]
-    # test_loader = test_loader[:8]
     test_loader = [
         test_loader[i : i + args.batch_size]
         for i in range(0, len(test_loader), args.batch_size)
@@ -138,7 +136,7 @@ adv_generator = PromptAttack(
     dataset=args.dataset,
     label_list=label_list,
     predictor=predictor,
-    version=GPTversion
+    version=args.version,
 )
 
 
@@ -154,9 +152,6 @@ def get_pred(loader, td):
     return results
 
 
-# ! batch
-
-
 natural_acc = []
 robust_acc = []
 ASR = []
@@ -167,7 +162,8 @@ label = [y for batch in test_loader for x, y in batch]
 for td_index in tqdm(range(12), desc="Outer Loop"):
     task_description = get_td(td_index, args.dataset)
     pred = get_pred(test_loader, task_description)
-
+    # print("_" * 10 + "normal" + "_" * 10)
+    # print(pred)
     adv_loader = []
     for batch in tqdm(test_loader, desc="Inner Loop", leave=False):
         batch_x = [x for (x, y) in batch]
@@ -187,6 +183,8 @@ for td_index in tqdm(range(12), desc="Outer Loop"):
         adv_loader.append([[adv_x, y] for (adv_x, y) in zip(batch_adv_x, batch_y)])
 
     adv_pred = get_pred(adv_loader, task_description)
+    # print("_" * 10 + "adversarial" + "_" * 10)
+    # print(adv_pred)
     natural_acc.append(get_accuracy(pred, label))
     robust_acc.append(get_accuracy(adv_pred, label))
     ASR.append(get_ASR(pred, adv_pred, label))

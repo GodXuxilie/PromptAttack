@@ -1,9 +1,10 @@
 import time
-import openai
+from openai import OpenAI
 
 import sqlite3
 import logging
 import threading
+import hashlib
 
 
 class LLMLogSql:
@@ -25,6 +26,10 @@ class LLMLogSql:
         return self.local.conn
 
     def DBQuery(self, Q):
+        # hash_algorithm = hashlib.sha256()
+        # hash_algorithm.update(Q.encode("utf-8"))
+        # hash_value = hash_algorithm.hexdigest()
+
         with self.lock:
             conn = self.get_connection()
             cursor = conn.cursor()
@@ -33,6 +38,10 @@ class LLMLogSql:
         return result[0] if result else None
 
     def DBInsert(self, Q, V):
+        # hash_algorithm = hashlib.sha256()
+        # hash_algorithm.update(Q.encode("utf-8"))
+        # hash_value = hash_algorithm.hexdigest()
+
         with self.lock:
             conn = sqlite3.connect(self.log_file)
             cursor = conn.cursor()
@@ -46,35 +55,34 @@ class LLMCall(LLMLogSql):
     log_count: int = 0
     save_count: int = 0
 
-    def __init__(
-        self, log_file, API_key, API_base, version="gpt-3.5-turbo-0301"
-    ) -> None:
+    def __init__(self, log_file, API_key, API_base, version) -> None:
         super().__init__(log_file)
         self.API_key = API_key
         self.API_base = API_base
         self.version = version
+        self.client = OpenAI(api_key=API_key, base_url=API_base)
 
     def call(self, prompt):
-        openai.api_base = self.API_base
-        openai.api_key = self.API_key
-        try:
-            response = openai.ChatCompletion.create(
-                model=self.version,
-                temperature=0,
-                messages=[{"role": "user", "content": prompt}],
-            )
-        except Exception as e:
-            logging.warning(e)
-            time.sleep(2)
-            return self.query(prompt)
-        return response["choices"][0]["message"]["content"]
+        response = None
+        while response is None:
+            try:
+                response = self.client.chat.completions.create(
+                    model=self.version,
+                    temperature=0.1,
+                    messages=[{"role": "user", "content": prompt}],
+                )
+            except Exception as e:
+                logging.warning(e)
+                time.sleep(2)
+        return response.choices[0].message.content
 
     def query(self, prompt):
         if save_response := self.DBQuery(prompt):
             self.log_count = self.log_count + 1
+            # print(self.log_count / (self.save_count + self.log_count))
             return save_response
         response = self.call(prompt)
         self.DBInsert(prompt, response)
         self.save_count = self.save_count + 1
-        # print(self.log_count / (self.save_count+self.log_count))
+        # print(self.log_count / (self.save_count + self.log_count))
         return response

@@ -121,7 +121,7 @@ nvidia-cusolver-cu11==11.4.0.1
 nvidia-cusparse-cu11==11.7.4.91
 nvidia-nccl-cu11==2.14.3
 nvidia-nvtx-cu11==11.7.91
-openai==0.27.8
+openai==1.35.13
 OpenHowNet==2.0
 orjson==3.9.5
 packaging==23.1

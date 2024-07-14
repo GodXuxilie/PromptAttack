@@ -20,7 +20,7 @@ class PromptAttack(LLMCall):
         dataset,
         label_list,
         predictor,
-        version="gpt-3.5-turbo-0301",
+        version,
     ) -> None:
         super().__init__(log_file, API_key, API_base, version)
         self.dataset = dataset
@@ -137,9 +137,11 @@ class PromptAttack(LLMCall):
         _, _, BERTScores = score(ori_samples, adv_samples, lang="en")
         BERTScores = BERTScores.tolist()
         results = [
-            adv_sample
-            if word_modification_ratio <= tau_1 and BERTScore >= tau_2
-            else ori_sample
+            (
+                adv_sample
+                if word_modification_ratio <= tau_1 and BERTScore >= tau_2
+                else ori_sample
+            )
             for (ori_sample, adv_sample, word_modification_ratio, BERTScore) in zip(
                 ori_samples, adv_samples, word_modification_ratios, BERTScores
             )
@@ -182,7 +184,7 @@ class PromptAttack(LLMCall):
             if self.dataset == "sst2":
                 adv_sample = adv_sample.lower()
             # constrain the word modification ratio of character-level and word-level perturbation <= 0.15
-            tau_1 = 1.0 if perturbation_instruction_index >= 7 else 0.15
+            tau_1 = 1.0 if perturbation_instruction_index >= 6 else tau_1
             adv_sample, _, _ = self.fidelity_filter(x[t_a][1], adv_sample, tau_1, tau_2)
             adv_x = copy.deepcopy(x)
             adv_x[t_a][1] = adv_sample
@@ -197,7 +199,7 @@ class PromptAttack(LLMCall):
                 if self.dataset == "sst2":
                     adv_sample = adv_sample.lower()
                 # constrain the word modification ratio of character-level and word-level perturbation <= 0.15
-                tau_1 = 1.0 if perturbation_instruction_index >= 7 else 0.15
+                tau_1 = 1.0 if perturbation_instruction_index >= 6 else tau_1
                 adv_sample, _, tmp_bertscore = self.fidelity_filter(
                     x[t_a][1], adv_sample, tau_1, tau_2
                 )
@@ -261,9 +263,11 @@ class PromptAttack(LLMCall):
             if self.dataset == "sst2":
                 adv_samples = [adv_sample.lower() for adv_sample in adv_samples]
             # constrain the word modification ratio of character-level and word-level perturbation <= 0.15
-            tau_1 = 1.0 if perturbation_instruction_index >= 7 else 0.15
             adv_samples, _, _ = self.batch_fidelity_filter(
-                [x[t_a][1] for x in batch_x], adv_samples, tau_1, tau_2
+                [x[t_a][1] for x in batch_x],
+                adv_samples,
+                1.0 if perturbation_instruction_index >= 6 else tau_1,
+                tau_2,
             )
             batch_adv_x = copy.deepcopy(batch_x)
             for adv_x, adv_sample in zip(batch_adv_x, adv_samples):
@@ -290,12 +294,14 @@ class PromptAttack(LLMCall):
                 if self.dataset == "sst2":
                     adv_samples = [adv_sample.lower() for adv_sample in adv_samples]
                 # constrain the word modification ratio of character-level and word-level perturbation <= 0.15
-                tau_1 = 1.0 if i >= 7 else 0.15
                 # adv_sample, _, tmp_bertscore = self.fidelity_filter(
                 #     x[t_a][1], adv_sample, tau_1, tau_2
                 # )
                 adv_samples, _, tmp_bertscores = self.batch_fidelity_filter(
-                    [x[t_a][1] for x in batch_x], adv_samples, tau_1, tau_2
+                    [x[t_a][1] for x in batch_x],
+                    adv_samples,
+                    1.0 if i >= 6 else tau_1,
+                    tau_2,
                 )
                 batch_tmp_adv_x = copy.deepcopy(batch_x)
 
