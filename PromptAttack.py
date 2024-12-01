@@ -323,20 +323,22 @@ class PromptAttack(LLMCall):
                 # for (tmp_adv_x, y) in zip(batch_tmp_adv_x, batch_y)
                 # ]
 
-                for (
+                for idx, (
                     adv_x,
                     tmp_adv_x,
                     tmp_bertscore,
                     bertscore,
                     success_attack,
-                ) in zip(
-                    batch_adv_x,
-                    batch_tmp_adv_x,
-                    tmp_bertscores,
-                    bertscores,
-                    success_attacks,
+                ) in enumerate(
+                    zip(
+                        batch_adv_x,
+                        batch_tmp_adv_x,
+                        tmp_bertscores,
+                        bertscores,
+                        success_attacks,
+                    )
                 ):
                     if success_attack and tmp_bertscore > bertscore:
-                        adv_x = tmp_adv_x
-                        bertscore = tmp_bertscore
+                        batch_adv_x[idx] = tmp_adv_x
+                        bertscores[idx] = tmp_bertscore
         return batch_adv_x
