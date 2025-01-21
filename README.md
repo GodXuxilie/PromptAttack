@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ## Let's Attack the LLM via PromptAttack
 
 <div align="center">
-    <img src="pic/intro.jpg" />
+    <img src="pic/intro1.jpg" />
 </div>
 
 We generate adversarial samples by querying the LLM via an attack prompt. The attack prompt consists of three key components: **original input (OI)**, **attack objective (AO)**, and **attack guidance (AG)**.
